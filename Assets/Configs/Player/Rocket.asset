@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f1229083f9437c478c517da89465a7a, type: 3}
-  m_Name: Standart Weapon
+  m_Name: Rocket
   m_EditorClassIdentifier: 
-  projectile: {fileID: 4297059790932897197, guid: c8f163591a68e9a498c70b2201422dcf, type: 3}
-  timeBetweenShots: 0.1
-  speedOfProjectile: 10
-  damage: 10
+  projectile: {fileID: 459017115695045949, guid: 5cd8c91e9cfe66446b52e9db016ea8b1, type: 3}
+  timeBetweenShots: 0.25
+  speedOfProjectile: 8
+  damage: 25

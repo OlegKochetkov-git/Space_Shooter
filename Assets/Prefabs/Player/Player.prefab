@@ -124,9 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e71332f126eb844e8f5647e1a090d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerWeapon:
-  - {fileID: 11400000, guid: 60da7ce0e65a1fc44ac45db883fbfb3d, type: 2}
-  - {fileID: 11400000, guid: 903404716b701d248b081148a6b54935, type: 2}
+  defaultWeapon: {fileID: 11400000, guid: 60da7ce0e65a1fc44ac45db883fbfb3d, type: 2}
+  secondWeapon: {fileID: 11400000, guid: 903404716b701d248b081148a6b54935, type: 2}
   gun: {fileID: 8677735587116428038}
   speed: 7
   padding: 1

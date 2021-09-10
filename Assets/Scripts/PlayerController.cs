@@ -10,8 +10,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject gun;
     
     [SerializeField] float speed = 3f;
-    
-
     [SerializeField] float padding = 1f;
 
     Coroutine firingCoroutin;
@@ -22,10 +20,6 @@ public class PlayerController : MonoBehaviour
     float yMin;
 
     bool isButtonDown;
-    
-
-    
-    
 
     void Start()
     {
@@ -37,8 +31,6 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Fire();
-        
-
     }
 
     void Move()
@@ -77,8 +69,6 @@ public class PlayerController : MonoBehaviour
         }
 
 
-
-
         if (Input.GetButtonUp("Fire1"))
         {
             isButtonDown = false;
@@ -93,36 +83,18 @@ public class PlayerController : MonoBehaviour
 
         }
 
-
-
-
-
     }
-
-    
-
-    
 
     IEnumerator PermanentlyFire(PlayerWeaponConfig weapon)
     {
         while (isButtonDown)
         {
-            
-            
             GameObject projectile = Instantiate(weapon.GetPlayerProjectilePferab(), gun.transform.position, Quaternion.identity);
             projectile.GetComponent<PlayerProjectile>().SetDamage(weapon.GetDamageProjectile());
             projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(weapon.GetSpeedOfProjectile(), 0);
             
-            
-            
-
             yield return new WaitForSeconds(weapon.GetTimeBetweenShots());
-
-            
-            
-        }
-        
+        }     
     }
 
-    
 }
