@@ -24,8 +24,8 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int waveIndex = 0; waveIndex < enemyConfigs.Count; waveIndex++)
         {
-            var currenWave = enemyConfigs[waveIndex];
-            yield return StartCoroutine(SpawnSingleWave(currenWave));
+            var currentWave = enemyConfigs[waveIndex];
+            yield return StartCoroutine(SpawnSingleWave(currentWave));
         }
     }
 
@@ -40,7 +40,7 @@ public class EnemySpawner : MonoBehaviour
             if (path == null) { path = enemyConfig.GetEnemyPath(); }
 
             int positionInFirstZone = 0;
-            var obj = Instantiate(enemy.GetEnemyPrefab(), path[positionInFirstZone], Quaternion.identity);
+            var obj = Instantiate(enemy.GetEnemyPrefab(), path[positionInFirstZone], transform.rotation);
             obj.GetComponent<Enemy>().SetEnemyConfig(enemy);
             obj.GetComponent<Enemy>().SetEnemyPath(path);
 

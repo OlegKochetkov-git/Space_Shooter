@@ -11,10 +11,12 @@ public class Enemy : MonoBehaviour
 
     int wayPoint = 1;
     float shotCount;
+    int health;
 
     void Start()
     {
         shotCount = enemyConfig.GetTimeBetweenShots();
+        health = enemyConfig.GetHealth();
     }
 
     void Update()
@@ -23,7 +25,7 @@ public class Enemy : MonoBehaviour
         CountDown();
     }
 
-
+    #region Set methods
     public void SetEnemyConfig(EnemyConfig enemyConfig)
     {
         this.enemyConfig = enemyConfig;
@@ -32,7 +34,16 @@ public class Enemy : MonoBehaviour
     {
         this.path = path;
     }
+    #endregion
 
+    public void GetDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
     void CountDown()
     {
         shotCount -= Time.deltaTime;
@@ -41,15 +52,13 @@ public class Enemy : MonoBehaviour
             Fire();
             shotCount = enemyConfig.GetTimeBetweenShots();
         }
-
     }
 
     void Fire()
     {
         var laser = Instantiate(enemyConfig.GetEnemyProjectile(), transform.position, Quaternion.Euler(0f,0f,90f));
         laser.GetComponent<Rigidbody2D>().velocity = new Vector2(enemyConfig.GetEnemyProjectileSpeed(), 0f);
-
-        
+        laser.GetComponent<EnemyProjectile>().SetDamage(enemyConfig.GetDamage());
     }
 
 

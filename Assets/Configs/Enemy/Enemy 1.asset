@@ -15,10 +15,10 @@ MonoBehaviour:
   enemyPrefab: {fileID: 2422821996248204061, guid: 01acb58af0fcb9341b5093ebf46198bd, type: 3}
   enemyProjectile: {fileID: 3479878227728496683, guid: 972002ddc6bbb2047a25f0fd1bd7eb2d, type: 3}
   damage: 10
-  projectileSpeed: 0
+  projectileSpeed: 15
   minTimeBetweenShots: 0.1
   maxTimeBetweenShots: 3
-  health: 200
+  health: 10
   randomPos:
   - {fileID: 2070902460276678534, guid: ad9fa5f9ec7e09e4eba69ad00b830e76, type: 3}
   - {fileID: 6969420808855273064, guid: 63f43bd5480e2274fb5539579331cf1e, type: 3}

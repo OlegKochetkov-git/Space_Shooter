@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [SerializeField] PlayerWeaponConfig defaultWeapon;
     [SerializeField] PlayerWeaponConfig secondWeapon;
     [SerializeField] GameObject gun;
+    [SerializeField] int health = 50;
     
     [SerializeField] float speed = 3f;
     [SerializeField] float padding = 1f;
@@ -33,6 +34,16 @@ public class PlayerController : MonoBehaviour
         Fire();
     }
 
+    public void GetDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+        
+    }
+    
     void Move()
     {
         var movementX = Input.GetAxisRaw("Horizontal") * Time.deltaTime * speed;
@@ -97,4 +108,5 @@ public class PlayerController : MonoBehaviour
         }     
     }
 
+    
 }

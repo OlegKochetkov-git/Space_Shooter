@@ -16,7 +16,7 @@ public class EnemyConfig : ScriptableObject
     [SerializeField] float speed;
     [SerializeField] int numberOfEnemies;
     [SerializeField] float timeBetweenSpawn;
-    
+
 
     public GameObject GetEnemyPrefab() { return enemyPrefab; }
     public GameObject GetEnemyProjectile() { return enemyProjectile; }

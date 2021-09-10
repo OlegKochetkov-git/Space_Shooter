@@ -15,4 +15,4 @@ MonoBehaviour:
   projectile: {fileID: 4297059790932897197, guid: c8f163591a68e9a498c70b2201422dcf, type: 3}
   timeBetweenShots: 0.1
   speedOfProjectile: 10
-  damage: 10
+  damage: 5

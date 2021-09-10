@@ -7,7 +7,7 @@ public class PlayerProjectile : MonoBehaviour
     Animator animator;
     Rigidbody2D rb;
 
-    float damage;
+    int damage;
     float collisionSpeed = 0;
 
     void Start()
@@ -16,19 +16,18 @@ public class PlayerProjectile : MonoBehaviour
         rb = GetComponent<Rigidbody2D>(); 
     }
 
-    public void SetDamage(float damage)
+    public void SetDamage(int damage)
     {
         this.damage = damage;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Enemy>())
-        {
-            var health = collision.GetComponent<Health>();
-            animator.SetTrigger("Collision");
-            health.GetDamage(damage);       
-        }
+        if (!collision.GetComponent<Enemy>()) { return; }
+        
+        collision.GetComponent<Enemy>().GetDamage(damage);
+        animator.SetTrigger("Collision");
+        
     }
 
     #region public methods used in the animator

@@ -96,7 +96,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0047103763, y: 0.1177589}
@@ -127,6 +127,7 @@ MonoBehaviour:
   defaultWeapon: {fileID: 11400000, guid: 60da7ce0e65a1fc44ac45db883fbfb3d, type: 2}
   secondWeapon: {fileID: 11400000, guid: 903404716b701d248b081148a6b54935, type: 2}
   gun: {fileID: 8677735587116428038}
+  health: 50
   speed: 7
   padding: 1
 --- !u!1 &8677735587116428038
