@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         Move();
-        CountDown();
+        CountDownShots();
     }
 
     #region Set methods
@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    void CountDown()
+    void CountDownShots()
     {
         shotCount -= Time.deltaTime;
         if (shotCount <= 0f)
