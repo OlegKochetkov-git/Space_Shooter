@@ -19,16 +19,28 @@ public class Projectile : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (isEnemyProjectile)
+        try
         {
-            collider.GetComponent<Player>().GetDamage(damage);
-            animator.SetTrigger("Collision");
+            if (isEnemyProjectile)
+            {
+                collider.GetComponent<Player>().GetDamage(damage);
+                animator.SetTrigger("Collision");
+            }
+            else
+            {
+                collider.GetComponent<Enemy>().GetDamage(damage);
+                animator.SetTrigger("Collision");
+            }
         }
-        else
+        catch (NullReferenceException)
         {
-            collider.GetComponent<Enemy>().GetDamage(damage);
-            animator.SetTrigger("Collision");
-        }  
+            if (!collider.GetComponent<Player>() || !collider.GetComponent<Enemy>())
+            {
+                return;
+            }
+            
+        }
+        
     }
 
     #region Set methods
