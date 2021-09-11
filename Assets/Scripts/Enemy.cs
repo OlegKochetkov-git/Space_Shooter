@@ -56,9 +56,10 @@ public class Enemy : MonoBehaviour
 
     void Fire()
     {
-        var laser = Instantiate(enemyConfig.GetEnemyProjectile(), transform.position, Quaternion.Euler(0f,0f,90f));
+        var laser = Instantiate(enemyConfig.GetEnemyProjectile(), transform.position, Quaternion.identity);
         laser.GetComponent<Rigidbody2D>().velocity = new Vector2(enemyConfig.GetEnemyProjectileSpeed(), 0f);
-        laser.GetComponent<EnemyProjectile>().SetDamage(enemyConfig.GetDamage());
+        laser.GetComponent<Projectile>().SetDamage(enemyConfig.GetDamage());
+        laser.GetComponent<Projectile>().SetIsEnemyProjectile(true);
     }
 
 

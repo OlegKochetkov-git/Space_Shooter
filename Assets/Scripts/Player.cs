@@ -100,8 +100,8 @@ public class Player : MonoBehaviour
     {
         while (isButtonDown)
         {
-            GameObject projectile = Instantiate(weapon.GetPlayerProjectilePferab(), gun.transform.position, Quaternion.identity);
-            projectile.GetComponent<PlayerProjectile>().SetDamage(weapon.GetDamageProjectile());
+            GameObject projectile = Instantiate(weapon.GetPlayerProjectilePferab(), gun.transform.position, Quaternion.Euler(0f, 0f, 90f));
+            projectile.GetComponent<Projectile>().SetDamage(weapon.GetDamageProjectile());
             projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(weapon.GetSpeedOfProjectile(), 0);
             
             yield return new WaitForSeconds(weapon.GetTimeBetweenShots());

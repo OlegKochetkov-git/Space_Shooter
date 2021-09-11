@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f8e8c74b4c800f46852ffa244401105, type: 3}
   m_Name: Enemy 1
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 2422821996248204061, guid: 01acb58af0fcb9341b5093ebf46198bd, type: 3}
-  enemyProjectile: {fileID: 3479878227728496683, guid: 972002ddc6bbb2047a25f0fd1bd7eb2d, type: 3}
+  enemyPrefab: {fileID: 3044894238654741379, guid: 818481d6f2624dc48835178097b7dc4a, type: 3}
+  enemyProjectile: {fileID: 7807427452645201639, guid: c732dc7ecf04c1543b43333d124dacf0, type: 3}
   damage: 10
   projectileSpeed: 15
   minTimeBetweenShots: 0.1
