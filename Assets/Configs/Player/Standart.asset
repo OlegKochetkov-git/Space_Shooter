@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f1229083f9437c478c517da89465a7a, type: 3}
   m_Name: Standart
   m_EditorClassIdentifier: 
-  projectile: {fileID: 4297059790932897197, guid: c8f163591a68e9a498c70b2201422dcf, type: 3}
+  projectile: {fileID: 3479878227728496683, guid: 972002ddc6bbb2047a25f0fd1bd7eb2d, type: 3}
   timeBetweenShots: 0.1
   speedOfProjectile: 10
   damage: 5

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f1229083f9437c478c517da89465a7a, type: 3}
   m_Name: Rocket
   m_EditorClassIdentifier: 
-  projectile: {fileID: 459017115695045949, guid: 5cd8c91e9cfe66446b52e9db016ea8b1, type: 3}
+  projectile: {fileID: 3479878227728496683, guid: 972002ddc6bbb2047a25f0fd1bd7eb2d, type: 3}
   timeBetweenShots: 0.25
   speedOfProjectile: 8
   damage: 25

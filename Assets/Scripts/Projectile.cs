@@ -5,24 +5,47 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    PlayerWeaponConfig playerWeaponConfig;
+    EnemyConfig enemyConfig;
     Animator animator;
     Rigidbody2D rb;
+    
 
     int damage;
     float collisionSpeed = 0;
-    bool isEnemyProjectile;
+    bool isEnemyProjectile = false;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+
+        if (enemyConfig != null)
+        {
+            isEnemyProjectile = enemyConfig.GetIsEnemyProjectile();
+            damage = enemyConfig.GetDamage();
+            rb.velocity = new Vector2(enemyConfig.GetEnemyProjectileSpeed(), 0);
+        }
+
+        if (playerWeaponConfig != null)
+        {
+            damage = playerWeaponConfig.GetDamageProjectile();
+        }
     }
+
+    void Update()
+    {
+       
+
+    }
+
     void OnTriggerEnter2D(Collider2D collider)
     {
         try
         {
             if (isEnemyProjectile)
             {
+                
                 collider.GetComponent<Player>().GetDamage(damage);
                 animator.SetTrigger("Collision");
             }
@@ -33,27 +56,38 @@ public class Projectile : MonoBehaviour
             }
         }
         catch (NullReferenceException)
-        {
-            if (!collider.GetComponent<Player>() || !collider.GetComponent<Enemy>())
-            {
-                return;
-            }
-            
+        { 
+            return;
         }
         
     }
 
     #region Set methods
-    public void SetDamage(int damage)
+    public void SetEnemyConfig(EnemyConfig enemyConfig)
     {
-        this.damage = damage;
+        this.enemyConfig = enemyConfig;
     }
 
-    public void SetIsEnemyProjectile(bool isEnemyProjectile)
+    public void SetPlayerConfig(PlayerWeaponConfig playerWeaponConfig)
     {
-        this.isEnemyProjectile = isEnemyProjectile;
+        this.playerWeaponConfig = playerWeaponConfig;
     }
+
+   
+    //public void SetDamage(int damage)
+    //{
+    //    this.damage = damage;
+    //}
+    //public void SetIsEnemyProjectile(bool isEnemyProjectile)
+    //{
+    //    this.isEnemyProjectile = isEnemyProjectile;
+    //}
+    //public void SetAnimationName(string animationName)
+    //{
+    //    this.animationName = animationName;
+    //}
     #endregion
+
 
     #region Set methods used in Animator
     public void SetSpeedProjectileCollision()
@@ -65,5 +99,6 @@ public class Projectile : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    
     #endregion
 }

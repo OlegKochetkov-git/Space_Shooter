@@ -2,21 +2,26 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] GameObject gun;
+
     EnemyConfig enemyConfig;
     List<Vector2> path;
+    Animator animator;
+
+    
 
     int wayPoint = 1;
-    float shotCount;
+    float shotCountDown;
     int health;
 
     void Start()
     {
-        shotCount = enemyConfig.GetTimeBetweenShots();
+        shotCountDown = enemyConfig.GetTimeBetweenShots();
         health = enemyConfig.GetHealth();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -34,8 +39,6 @@ public class Enemy : MonoBehaviour
     {
         this.path = path;
     }
-    #endregion
-
     public void GetDamage(int damage)
     {
         health -= damage;
@@ -44,24 +47,38 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    #endregion
+
     void CountDownShots()
     {
-        shotCount -= Time.deltaTime;
-        if (shotCount <= 0f)
+        shotCountDown -= Time.deltaTime;
+        if (shotCountDown <= 0f)
         {
             Fire();
-            shotCount = enemyConfig.GetTimeBetweenShots();
+            shotCountDown = enemyConfig.GetTimeBetweenShots();
         }
     }
 
     void Fire()
     {
-        var laser = Instantiate(enemyConfig.GetEnemyProjectile(), transform.position, Quaternion.identity);
-        laser.GetComponent<Rigidbody2D>().velocity = new Vector2(enemyConfig.GetEnemyProjectileSpeed(), 0f);
-        laser.GetComponent<Projectile>().SetDamage(enemyConfig.GetDamage());
-        laser.GetComponent<Projectile>().SetIsEnemyProjectile(true);
+        animator.SetTrigger("Initial Shot");
+
+        //var laser = Instantiate(enemyConfig.GetEnemyProjectile(), gun.transform.position, Quaternion.identity);
+        //laser.GetComponent<Projectile>().SetEnemyConfig(enemyConfig);
+        
+        
+        //laser.GetComponent<Projectile>().SetIsEnemyProjectile(true);
+        //laser.GetComponent<Projectile>().SetAnimationName(enemyConfig.GetAnimationProjectileName());
+        //laser.GetComponent<Rigidbody2D>().velocity = new Vector2(enemyConfig.GetEnemyProjectileSpeed(), 0f);
+        //laser.GetComponent<Projectile>().SetDamage(enemyConfig.GetDamage());
     }
 
+    // in animator
+    public void FireAnimation()
+    {
+        var laser = Instantiate(enemyConfig.GetEnemyProjectile(), gun.transform.position, Quaternion.identity);
+        laser.GetComponent<Projectile>().SetEnemyConfig(enemyConfig);
+    }
 
     void Move()
     {

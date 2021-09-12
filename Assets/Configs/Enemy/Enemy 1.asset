@@ -12,19 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f8e8c74b4c800f46852ffa244401105, type: 3}
   m_Name: Enemy 1
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 3044894238654741379, guid: 818481d6f2624dc48835178097b7dc4a, type: 3}
-  enemyProjectile: {fileID: 7807427452645201639, guid: c732dc7ecf04c1543b43333d124dacf0, type: 3}
-  damage: 10
-  projectileSpeed: 15
-  minTimeBetweenShots: 0.1
-  maxTimeBetweenShots: 3
-  health: 10
   randomPos:
   - {fileID: 2070902460276678534, guid: ad9fa5f9ec7e09e4eba69ad00b830e76, type: 3}
   - {fileID: 6969420808855273064, guid: 63f43bd5480e2274fb5539579331cf1e, type: 3}
   - {fileID: 9103196001525440218, guid: e46e24d3e2e19014dac4f34231b8b3ed, type: 3}
   - {fileID: 8150035155084649468, guid: 513b49ceef9909f41bf0dd773100e423, type: 3}
   - {fileID: 4534505859073371046, guid: a069fdb9370733741b4706432a19524f, type: 3}
+  enemyPrefab: {fileID: 3044894238654741379, guid: 818481d6f2624dc48835178097b7dc4a, type: 3}
+  enemyProjectile: {fileID: 7807427452645201639, guid: c732dc7ecf04c1543b43333d124dacf0, type: 3}
+  animationProjectileName: Shot 1
+  damage: 10
+  projectileSpeed: 15
+  minTimeBetweenShots: 0.1
+  maxTimeBetweenShots: 3
+  health: 10
   speed: 10
   numberOfEnemies: 3
   timeBetweenSpawn: 0.25
