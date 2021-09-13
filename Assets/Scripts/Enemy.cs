@@ -11,11 +11,9 @@ public class Enemy : MonoBehaviour
     List<Vector2> path;
     Animator animator;
 
-    
-
     int wayPoint = 1;
-    float shotCountDown;
     int health;
+    float shotCountDown;
 
     void Start()
     {
@@ -49,6 +47,13 @@ public class Enemy : MonoBehaviour
     }
     #endregion
 
+    #region Method used in animator
+    public void FireAnimation()
+    {
+        var laser = Instantiate(enemyConfig.GetEnemyProjectile(), gun.transform.position, Quaternion.identity);
+        laser.GetComponent<Projectile>().SetEnemyConfig(enemyConfig);
+    }
+    #endregion
     void CountDownShots()
     {
         shotCountDown -= Time.deltaTime;
@@ -62,22 +67,6 @@ public class Enemy : MonoBehaviour
     void Fire()
     {
         animator.SetTrigger("Initial Shot");
-
-        //var laser = Instantiate(enemyConfig.GetEnemyProjectile(), gun.transform.position, Quaternion.identity);
-        //laser.GetComponent<Projectile>().SetEnemyConfig(enemyConfig);
-        
-        
-        //laser.GetComponent<Projectile>().SetIsEnemyProjectile(true);
-        //laser.GetComponent<Projectile>().SetAnimationName(enemyConfig.GetAnimationProjectileName());
-        //laser.GetComponent<Rigidbody2D>().velocity = new Vector2(enemyConfig.GetEnemyProjectileSpeed(), 0f);
-        //laser.GetComponent<Projectile>().SetDamage(enemyConfig.GetDamage());
-    }
-
-    // in animator
-    public void FireAnimation()
-    {
-        var laser = Instantiate(enemyConfig.GetEnemyProjectile(), gun.transform.position, Quaternion.identity);
-        laser.GetComponent<Projectile>().SetEnemyConfig(enemyConfig);
     }
 
     void Move()

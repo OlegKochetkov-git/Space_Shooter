@@ -20,12 +20,11 @@ MonoBehaviour:
   - {fileID: 4534505859073371046, guid: a069fdb9370733741b4706432a19524f, type: 3}
   enemyPrefab: {fileID: 2535752696810063579, guid: bba6b6476ea2a7343929caef7358ce64, type: 3}
   enemyProjectile: {fileID: 5307176415010290526, guid: fc657c47a40f54c4587dd48c74cf20c3, type: 3}
-  animationProjectileName: Shot 2
   damage: 10
-  projectileSpeed: 3
+  projectileSpeed: 5
   minTimeBetweenShots: 1
   maxTimeBetweenShots: 1
   health: 50
   speed: 2
-  numberOfEnemies: 1
+  numberOfEnemies: 3
   timeBetweenSpawn: 0.5

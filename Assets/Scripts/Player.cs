@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] PlayerWeaponConfig defaultWeapon;
+    [SerializeField] PlayerWeaponConfig firstWeapon;
     [SerializeField] PlayerWeaponConfig secondWeapon;
     [SerializeField] GameObject gun;
     [SerializeField] int health = 50;
@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             isButtonDown = true;
-            firingCoroutin = StartCoroutine(PermanentlyFire(defaultWeapon));
+            firingCoroutin = StartCoroutine(PermanentlyFire(firstWeapon));
         }
 
         if (Input.GetButtonDown("Fire2"))
@@ -101,7 +101,6 @@ public class Player : MonoBehaviour
         while (isButtonDown)
         {
             GameObject projectile = Instantiate(weapon.GetPlayerProjectilePferab(), gun.transform.position, Quaternion.Euler(0f, 0f, 90f));
-            //projectile.GetComponent<Projectile>().SetDamage(weapon.GetDamageProjectile());
             projectile.GetComponent<Projectile>().SetPlayerConfig(weapon);
             projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(weapon.GetSpeedOfProjectile(), 0);
             

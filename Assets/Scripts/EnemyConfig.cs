@@ -8,7 +8,6 @@ public class EnemyConfig : ScriptableObject
     [SerializeField] List<GenerateRandomPosInArea> randomPos;
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] GameObject enemyProjectile;
-    [SerializeField] string animationProjectileName;
     [SerializeField] int damage = 10;
     [SerializeField] float projectileSpeed;
     [SerializeField] float minTimeBetweenShots = 0.1f;
@@ -24,7 +23,6 @@ public class EnemyConfig : ScriptableObject
     public GameObject GetEnemyPrefab() { return enemyPrefab; }
     public GameObject GetEnemyProjectile() { return enemyProjectile; }
     public int GetDamage() { return damage; }
-    public string GetAnimationProjectileName() { return animationProjectileName; }
     public int GetHealth() { return health; }
     public float GetTimeBetweenShots()
     {

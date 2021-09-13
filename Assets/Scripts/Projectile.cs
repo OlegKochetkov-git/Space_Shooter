@@ -9,11 +9,10 @@ public class Projectile : MonoBehaviour
     EnemyConfig enemyConfig;
     Animator animator;
     Rigidbody2D rb;
-    
 
     int damage;
+    bool isEnemyProjectile;
     float collisionSpeed = 0;
-    bool isEnemyProjectile = false;
 
     void Start()
     {
@@ -33,19 +32,12 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-       
-
-    }
-
     void OnTriggerEnter2D(Collider2D collider)
     {
         try
         {
             if (isEnemyProjectile)
-            {
-                
+            { 
                 collider.GetComponent<Player>().GetDamage(damage);
                 animator.SetTrigger("Collision");
             }
@@ -67,30 +59,15 @@ public class Projectile : MonoBehaviour
     {
         this.enemyConfig = enemyConfig;
     }
-
     public void SetPlayerConfig(PlayerWeaponConfig playerWeaponConfig)
     {
         this.playerWeaponConfig = playerWeaponConfig;
     }
-
-   
-    //public void SetDamage(int damage)
-    //{
-    //    this.damage = damage;
-    //}
-    //public void SetIsEnemyProjectile(bool isEnemyProjectile)
-    //{
-    //    this.isEnemyProjectile = isEnemyProjectile;
-    //}
-    //public void SetAnimationName(string animationName)
-    //{
-    //    this.animationName = animationName;
-    //}
     #endregion
 
 
     #region Set methods used in Animator
-    public void SetSpeedProjectileCollision()
+    public void SetSpeedProjectileZero()
     {
         rb.velocity = new Vector2(collisionSpeed, collisionSpeed);
     }
@@ -99,6 +76,5 @@ public class Projectile : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    
     #endregion
 }
