@@ -1784,13 +1784,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d86865b64dfb34b91f05993e90afce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planet1:
+  planets:
   - {fileID: 1882381198}
   - {fileID: 1265239338}
   - {fileID: 70623151}
-  speed1: 0.005
-  speed2: 0
-  speed3: 0
+  speed:
+  - 0.009
+  - 0.01
+  - 0.005
 --- !u!1001 &4861381559951318700
 PrefabInstance:
   m_ObjectHideFlags: 0

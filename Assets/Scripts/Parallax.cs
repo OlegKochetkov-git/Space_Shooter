@@ -2,32 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class Parallax : MonoBehaviour
 {
     static Parallax instance;
-    [SerializeField] List<RawImage> planet1;
-    [SerializeField] float speed1;
-    //[SerializeField] RawImage planet2;
-    [SerializeField] float speed2;
 
-    //[SerializeField] RawImage planet3;
-    [SerializeField] float speed3;
-
+    [SerializeField] List<RawImage> planets;
+    [SerializeField] List<float> speed;
 
     void Awake()
     {
-        //int number = FindObjectsOfType<Parallax>().Length;
-        //if (number > 1)
-        //{
-        //    gameObject.SetActive(false);
-        //    Destroy(gameObject);
-        //}
-        //else
-        //{
-
-        //DontDestroyOnLoad(gameObject);
-        //}
         if (instance == null)
         {
             instance = this;
@@ -38,23 +23,20 @@ public class Parallax : MonoBehaviour
             gameObject.SetActive(false);
             Destroy(gameObject);
         }
-
     }
 
     void Update()
     {
-        MoveImage();
+        MoveImage(planets, speed);
     }
 
-    void MoveImage()
+    void MoveImage(List<RawImage> planets, List<float> speed)
     {
-        foreach (RawImage item in planet1)
+        for (int numberOfPlanet = 0; numberOfPlanet < planets.Count; numberOfPlanet++)
         {
-            
-            Rect rect = item.uvRect;
-            rect.x += speed1 * Time.deltaTime;
-            item.uvRect = rect;
+            Rect rect = planets[numberOfPlanet].uvRect;
+            rect.x += speed[numberOfPlanet] * Time.deltaTime;
+            planets[numberOfPlanet].uvRect = rect;
         }
-        
     }
 }
