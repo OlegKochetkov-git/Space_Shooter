@@ -18,14 +18,13 @@ MonoBehaviour:
   - {fileID: 9103196001525440218, guid: e46e24d3e2e19014dac4f34231b8b3ed, type: 3}
   - {fileID: 8150035155084649468, guid: 513b49ceef9909f41bf0dd773100e423, type: 3}
   - {fileID: 4534505859073371046, guid: a069fdb9370733741b4706432a19524f, type: 3}
-  enemyPrefab: {fileID: 3044894238654741379, guid: 818481d6f2624dc48835178097b7dc4a, type: 3}
-  enemyProjectile: {fileID: 7807427452645201639, guid: c732dc7ecf04c1543b43333d124dacf0, type: 3}
-  animationProjectileName: Shot 1
+  enemyPrefab: {fileID: 3469961230203170502, guid: cf4655cfb0309f5478ca37e8281d4fce, type: 3}
+  enemyProjectile: {fileID: 4694995369076798583, guid: 1454f31ed8abefc448b588e6ff41d9b4, type: 3}
   damage: 10
   projectileSpeed: 15
   minTimeBetweenShots: 0.1
   maxTimeBetweenShots: 3
   health: 10
-  speed: 10
+  speed: 5.64
   numberOfEnemies: 3
   timeBetweenSpawn: 0.25

@@ -10,7 +10,6 @@ public class Enemy : MonoBehaviour
     EnemyConfig enemyConfig;
     List<Vector2> path;
     Animator animator;
-    Rigidbody2D rb;
 
     int wayPoint = 1;
     int health;
@@ -18,7 +17,6 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         shotCountDown = enemyConfig.GetTimeBetweenShots();
         health = enemyConfig.GetHealth();
         animator = GetComponent<Animator>();
