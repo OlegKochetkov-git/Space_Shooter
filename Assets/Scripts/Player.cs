@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] PlayerWeaponConfig firstWeapon;
-    [SerializeField] PlayerWeaponConfig secondWeapon;
+    [SerializeField] PlayerWeaponConfig weapon;
     [SerializeField] GameObject gun;
     [SerializeField] int health = 50;
     
@@ -14,16 +13,16 @@ public class Player : MonoBehaviour
     [SerializeField] float padding = 1f;
 
     Coroutine firingCoroutin;
+    Animator animator;
 
     float xMin;
     float xMax;
     float yMax;
     float yMin;
 
-    bool isButtonDown;
-
     void Start()
     {
+        animator = GetComponent<Animator>();
         ScreenBorders();
     }
 
@@ -40,8 +39,7 @@ public class Player : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
-        }
-        
+        }  
     }
     
     void Move()
@@ -69,44 +67,42 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            isButtonDown = true;
-            firingCoroutin = StartCoroutine(PermanentlyFire(firstWeapon));
+            firingCoroutin = StartCoroutine(PermanentlyFire());
         }
-
-        if (Input.GetButtonDown("Fire2"))
-        {
-            isButtonDown = true;
-            firingCoroutin = StartCoroutine(PermanentlyFire(secondWeapon));
-        }
-
 
         if (Input.GetButtonUp("Fire1"))
-        {
-            isButtonDown = false;
+        { 
             StopCoroutine(firingCoroutin);
-
-        }
-
-        if (Input.GetButtonUp("Fire2"))
-        {
-            isButtonDown = false;
-            StopCoroutine(firingCoroutin);
-
         }
 
     }
 
-    IEnumerator PermanentlyFire(PlayerWeaponConfig weapon)
+    IEnumerator PermanentlyFire()
     {
-        while (isButtonDown)
+        while (true)
         {
-            GameObject projectile = Instantiate(weapon.GetPlayerProjectilePferab(), gun.transform.position, Quaternion.Euler(0f, 0f, 90f));
-            projectile.GetComponent<Projectile>().SetPlayerConfig(weapon);
-            projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(weapon.GetSpeedOfProjectile(), 0);
-            
+            animator.SetTrigger("Initial Shot");
+
             yield return new WaitForSeconds(weapon.GetTimeBetweenShots());
         }     
     }
 
-    
+    #region Public methods use in animator
+    public void Shot()
+    {
+        GameObject projectile = Instantiate(weapon.GetPlayerProjectilePferab(), gun.transform.position, Quaternion.Euler(0f, 0f, 0f));
+        projectile.GetComponent<Projectile>().SetPlayerConfig(weapon);
+        projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(weapon.GetSpeedOfProjectile(), 0);
+    }
+    #endregion
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Enemy>() || collision.GetComponent<Projectile>())
+        {
+            animator.SetTrigger("Damage");
+        }
+    }
+
+
 }

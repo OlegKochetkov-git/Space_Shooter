@@ -25,6 +25,6 @@ MonoBehaviour:
   minTimeBetweenShots: 1
   maxTimeBetweenShots: 1
   health: 50
-  speed: 2
+  speed: 3
   numberOfEnemies: 3
   timeBetweenSpawn: 0.5
