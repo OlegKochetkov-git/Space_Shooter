@@ -39,6 +39,7 @@ public class Projectile : MonoBehaviour
             if (isEnemyProjectile)
             { 
                 collider.GetComponent<Player>().GetDamage(damage);
+                collider.GetComponent<Animator>().SetTrigger("Damage");
                 animator.SetTrigger("Collision");
             }
             else

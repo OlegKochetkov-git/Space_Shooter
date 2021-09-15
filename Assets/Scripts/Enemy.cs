@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     EnemyConfig enemyConfig;
     List<Vector2> path;
     Animator animator;
+    Rigidbody2D rb;
 
     int wayPoint = 1;
     int health;
@@ -17,6 +18,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         shotCountDown = enemyConfig.GetTimeBetweenShots();
         health = enemyConfig.GetHealth();
         animator = GetComponent<Animator>();
@@ -42,12 +44,15 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            Destroy(gameObject);
+            animator.SetTrigger("Explosion");
         }
     }
     #endregion
 
+    
+
     #region Method used in animator
+    public void DestroyInEndAnimatin() { Destroy(gameObject); }
     public void FireAnimation()
     {
         var laser = Instantiate(enemyConfig.GetEnemyProjectile(), gun.transform.position, Quaternion.identity);

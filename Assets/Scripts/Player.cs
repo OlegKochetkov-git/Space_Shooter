@@ -96,13 +96,13 @@ public class Player : MonoBehaviour
     }
     #endregion
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.GetComponent<Enemy>() || collision.GetComponent<Projectile>())
-        {
-            animator.SetTrigger("Damage");
-        }
-    }
+    //void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.GetComponent<Enemy>() || collision.GetComponent<Projectile>())
+    //    {
+    //        animator.SetTrigger("Damage");
+    //    }
+    //}
 
 
 }
