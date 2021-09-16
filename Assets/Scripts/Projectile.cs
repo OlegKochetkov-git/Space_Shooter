@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    PlayerWeaponConfig playerWeaponConfig;
+    PlayerShipConfig playerWeaponConfig;
     EnemyConfig enemyConfig;
     Animator animator;
     Rigidbody2D rb;
@@ -28,7 +28,7 @@ public class Projectile : MonoBehaviour
 
         if (playerWeaponConfig != null)
         {
-            damage = playerWeaponConfig.GetDamageProjectile();
+            damage = playerWeaponConfig.DamageProjectile;
         }
     }
 
@@ -60,7 +60,7 @@ public class Projectile : MonoBehaviour
     {
         this.enemyConfig = enemyConfig;
     }
-    public void SetPlayerConfig(PlayerWeaponConfig playerWeaponConfig)
+    public void SetPlayerConfig(PlayerShipConfig playerWeaponConfig)
     {
         this.playerWeaponConfig = playerWeaponConfig;
     }

@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] PlayerWeaponConfig weapon;
+    [SerializeField] PlayerShipConfig ship;
     [SerializeField] GameObject gun;
-    [SerializeField] int health = 50;
-    [SerializeField] float speed = 3f;
+
+    [Header("Set in ScriptableObjects")]
+    [SerializeField] int health;
+    [Space]
 
     [SerializeField] float padding = 1f;
 
@@ -22,6 +24,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        health = ship.GetHealth;
         animator = GetComponent<Animator>();
         ScreenBorders();
     }
@@ -44,8 +47,8 @@ public class Player : MonoBehaviour
     
     void Move()
     {
-        var movementX = Input.GetAxisRaw("Horizontal") * Time.deltaTime * speed;
-        var movementY = Input.GetAxisRaw("Vertical") * Time.deltaTime * speed;
+        var movementX = Input.GetAxisRaw("Horizontal") * Time.deltaTime * ship.GetShipSpeed;
+        var movementY = Input.GetAxisRaw("Vertical") * Time.deltaTime * ship.GetShipSpeed;
 
         var newPosX = Mathf.Clamp(transform.position.x + movementX, xMin, xMax);
         var newPosY = Mathf.Clamp(transform.position.y + movementY, yMin, yMax);
@@ -74,7 +77,6 @@ public class Player : MonoBehaviour
         { 
             StopCoroutine(firingCoroutin);
         }
-
     }
 
     IEnumerator PermanentlyFire()
@@ -83,16 +85,16 @@ public class Player : MonoBehaviour
         {
             animator.SetTrigger("Initial Shot");
 
-            yield return new WaitForSeconds(weapon.GetTimeBetweenShots());
+            yield return new WaitForSeconds(ship.TimeBetweenShots);
         }     
     }
 
     #region Public methods use in animator
     public void Shot()
     {
-        GameObject projectile = Instantiate(weapon.GetPlayerProjectilePferab(), gun.transform.position, Quaternion.Euler(0f, 0f, 0f));
-        projectile.GetComponent<Projectile>().SetPlayerConfig(weapon);
-        projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(weapon.GetSpeedOfProjectile(), 0);
+        GameObject projectile = Instantiate(ship.PlayerProjectilePferab, gun.transform.position, Quaternion.Euler(0f, 0f, 0f));
+        projectile.GetComponent<Projectile>().SetPlayerConfig(ship);
+        projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(ship.SpeedOfProjectile, 0);
     }
     #endregion
 

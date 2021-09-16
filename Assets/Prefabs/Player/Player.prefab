@@ -159,8 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 11400000, guid: 60da7ce0e65a1fc44ac45db883fbfb3d, type: 2}
   gun: {fileID: 8677735587116428038}
-  health: 10000
-  speed: 7
+  health: 0
   padding: 1
 --- !u!95 &6268339006964744321
 Animator:
