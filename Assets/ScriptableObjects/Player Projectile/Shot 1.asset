@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f1229083f9437c478c517da89465a7a, type: 3}
   m_Name: Shot 1
   m_EditorClassIdentifier: 
+  ship: {fileID: 0}
   projectile: {fileID: 8971260174783902156, guid: 2be6f2d6895a6e14f9bf82415f4716f8, type: 3}
   timeBetweenShots: 0.0001
   speedOfProjectile: 15
   damage: 25
+  health: 200
+  shipSpeed: 7
