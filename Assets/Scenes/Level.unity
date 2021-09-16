@@ -2363,6 +2363,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 137848265066196073, guid: cf4655cfb0309f5478ca37e8281d4fce, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3469961230203170502, guid: cf4655cfb0309f5478ca37e8281d4fce, type: 3}
       propertyPath: m_Name
       value: Enemy 1

@@ -8,8 +8,8 @@ public class Player : MonoBehaviour
     [SerializeField] PlayerWeaponConfig weapon;
     [SerializeField] GameObject gun;
     [SerializeField] int health = 50;
-    
     [SerializeField] float speed = 3f;
+
     [SerializeField] float padding = 1f;
 
     Coroutine firingCoroutin;
@@ -95,14 +95,6 @@ public class Player : MonoBehaviour
         projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(weapon.GetSpeedOfProjectile(), 0);
     }
     #endregion
-
-    //void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.GetComponent<Enemy>() || collision.GetComponent<Projectile>())
-    //    {
-    //        animator.SetTrigger("Damage");
-    //    }
-    //}
 
 
 }
