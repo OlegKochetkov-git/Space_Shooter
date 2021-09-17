@@ -41,8 +41,19 @@ public class Player : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            Destroy(gameObject);
+            animator.SetTrigger("Explosion");
+            
         }  
+    }
+
+    public void SetShipConfig(PlayerShipConfig ship)
+    {
+        this.ship = ship;
+    }
+
+    void DestroyShip()
+    {
+        Destroy(gameObject);
     }
     
     void Move()
