@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f1229083f9437c478c517da89465a7a, type: 3}
-  m_Name: Shot 2
+  m_Name: Ship 1
   m_EditorClassIdentifier: 
-  projectile: {fileID: 3479878227728496683, guid: 972002ddc6bbb2047a25f0fd1bd7eb2d, type: 3}
-  timeBetweenShots: 0.25
-  speedOfProjectile: 8
+  ship: {fileID: 2260492026223951861, guid: 8e15159161df1a04da78c4f3d61ca0d3, type: 3}
+  projectile: {fileID: 8971260174783902156, guid: 2be6f2d6895a6e14f9bf82415f4716f8, type: 3}
+  timeBetweenShots: 0.0001
+  speedOfProjectile: 15
   damage: 25
+  health: 200
+  shipSpeed: 7
