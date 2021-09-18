@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Projectile 5 Collision
+  m_Name: Projectile 6 Collision
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -20,7 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 0ba5c8afefb65f34ead529448708505a, type: 2}
+  m_Motion: {fileID: 7400000, guid: 29ddf108f4d7c3d47944735f89fe2cb4, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -62,10 +62,10 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -7619689460403520275}
-    m_Position: {x: 490, y: 100, z: 0}
+    m_Position: {x: 510, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4676699233363702959}
-    m_Position: {x: 310, y: -20, z: 0}
+    m_Position: {x: 280, y: 10, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -82,7 +82,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Projectile 5
+  m_Name: Projectile 6
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Collision
@@ -111,7 +111,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Projectile 5 Flight
+  m_Name: Projectile 6 Flight
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -125,7 +125,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ef0e6467e3003f94fbca0961eff55f25, type: 2}
+  m_Motion: {fileID: 7400000, guid: c29a37a56a3445d42a0d119eb9d99b09, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
