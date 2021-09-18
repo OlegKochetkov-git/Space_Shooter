@@ -418,6 +418,7 @@ MonoBehaviour:
   ships:
   - {fileID: 11400000, guid: 60da7ce0e65a1fc44ac45db883fbfb3d, type: 2}
   - {fileID: 11400000, guid: 903404716b701d248b081148a6b54935, type: 2}
+  - {fileID: 11400000, guid: 2d5e5db0da34a304b9171b2136fde378, type: 2}
 --- !u!4 &525847422
 Transform:
   m_ObjectHideFlags: 0
@@ -1105,7 +1106,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1295230870}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 5
+  m_MaxValue: 15
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -1471,12 +1472,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8695530595125958222, guid: ef88d73d2d9142f438f9277f00efc7d5, type: 3}
       propertyPath: enemyConfigs.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8695530595125958222, guid: ef88d73d2d9142f438f9277f00efc7d5, type: 3}
       propertyPath: enemyConfigs.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: b263293228cf8bc4e85ff29f4293780a, type: 2}
+    - target: {fileID: 8695530595125958222, guid: ef88d73d2d9142f438f9277f00efc7d5, type: 3}
+      propertyPath: enemyConfigs.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0cb952f36d1fb0c439ae6503540b31b8, type: 2}
+    - target: {fileID: 8695530595125958222, guid: ef88d73d2d9142f438f9277f00efc7d5, type: 3}
+      propertyPath: enemyConfigs.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: f14f78176252dce448763b6a088184c2, type: 2}
     - target: {fileID: 8695530595125958223, guid: ef88d73d2d9142f438f9277f00efc7d5, type: 3}
       propertyPath: m_Name
       value: Enemy Spawner

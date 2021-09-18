@@ -32,10 +32,10 @@ public class ShipsManager : MonoBehaviour
         //}
     }
 
-    public void RespawnSecondShip()
+    public void RespawnSecondShip(int shipIndex)
     {
         pos = FindObjectOfType<Player>().gameObject.transform.position;
         Destroy(FindObjectOfType<Player>().gameObject);
-        Instantiate(ships[1].GetShipPrefab, pos, Quaternion.Euler(0f, 0f, -90f));
+        Instantiate(ships[shipIndex].GetShipPrefab, pos, Quaternion.Euler(0f, 0f, -90f));
     }
 }

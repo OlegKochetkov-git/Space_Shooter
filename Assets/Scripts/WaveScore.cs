@@ -6,11 +6,13 @@ using UnityEngine.UI;
 public class WaveScore : MonoBehaviour
 {
     float enemyKills;
-    bool isNextShip;
+    float maxSlideValue;
+    int shipIndex;
 
     void Start()
     {
         GetComponent<Slider>().value = enemyKills;
+        maxSlideValue = GetComponent<Slider>().maxValue;
     }
 
     void Update()
@@ -18,10 +20,14 @@ public class WaveScore : MonoBehaviour
 
         //TODO come up with something to GetComponent not be in the update
         GetComponent<Slider>().value = enemyKills;
-        if (GetComponent<Slider>().value == 5 && !isNextShip)
+
+        if (GetComponent<Slider>().value == maxSlideValue)
         {
-            isNextShip = true;
-            FindObjectOfType<ShipsManager>().RespawnSecondShip();
+            StartCoroutine(SpawnNextShip());
+
+            enemyKills = 0;
+            GetComponent<Slider>().value = 0;
+            
         }
     }
 
@@ -30,5 +36,15 @@ public class WaveScore : MonoBehaviour
         this.enemyKills += enemyKills;
     }
 
+    IEnumerator SpawnNextShip()
+    {
+        if (shipIndex < 2)
+        {
+            shipIndex++;
+            FindObjectOfType<ShipsManager>().RespawnSecondShip(shipIndex);
+        }
+
+        yield return new WaitForEndOfFrame();
+    }
 
 }

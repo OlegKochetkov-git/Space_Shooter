@@ -17,5 +17,5 @@ MonoBehaviour:
   timeBetweenShots: 0.25
   speedOfProjectile: 18
   damage: 50
-  health: 5000
+  health: 3000
   shipSpeed: 5

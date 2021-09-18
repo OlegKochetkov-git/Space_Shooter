@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f1229083f9437c478c517da89465a7a, type: 3}
+  m_Name: Ship 3
+  m_EditorClassIdentifier: 
+  ship: {fileID: 4549914017111014134, guid: 909bea8720e11fe49b58edbef9f3b150, type: 3}
+  projectile: {fileID: 961314411884670310, guid: 7bc3a70be500f304f8908c0e27230b97, type: 3}
+  timeBetweenShots: 0.25
+  speedOfProjectile: 18
+  damage: 50
+  health: 8000
+  shipSpeed: 5
