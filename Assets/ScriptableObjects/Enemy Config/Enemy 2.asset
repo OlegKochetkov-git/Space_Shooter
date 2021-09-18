@@ -28,4 +28,4 @@ MonoBehaviour:
   speed: 3
   numberOfEnemies: 3
   timeBetweenSpawn: 0.5
-  pointsForKill: 0.3
+  pointsForKill: 1

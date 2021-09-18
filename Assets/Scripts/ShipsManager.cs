@@ -15,20 +15,27 @@ public class ShipsManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            pos = FindObjectOfType<Player>().gameObject.transform.position;
+        //if (Input.GetKeyDown(KeyCode.F))
+        //{
+        //    pos = FindObjectOfType<Player>().gameObject.transform.position;
 
 
-            Destroy(FindObjectOfType<Player>().gameObject);
-            Instantiate(ships[1].GetShipPrefab, pos, Quaternion.Euler(0f, 0f, -90f));
+        //    Destroy(FindObjectOfType<Player>().gameObject);
+        //    Instantiate(ships[1].GetShipPrefab, pos, Quaternion.Euler(0f, 0f, -90f));
 
-        }
-        else if (Input.GetKeyDown(KeyCode.G))
-        {
-            pos = FindObjectOfType<Player>().gameObject.transform.position;
-            Destroy(FindObjectOfType<Player>().gameObject);
-            Instantiate(ships[0].GetShipPrefab, pos, Quaternion.Euler(0f, 0f, -90f));
-        }
+        //}
+        //else if (Input.GetKeyDown(KeyCode.G))
+        //{
+        //    pos = FindObjectOfType<Player>().gameObject.transform.position;
+        //    Destroy(FindObjectOfType<Player>().gameObject);
+        //    Instantiate(ships[0].GetShipPrefab, pos, Quaternion.Euler(0f, 0f, -90f));
+        //}
+    }
+
+    public void RespawnSecondShip()
+    {
+        pos = FindObjectOfType<Player>().gameObject.transform.position;
+        Destroy(FindObjectOfType<Player>().gameObject);
+        Instantiate(ships[1].GetShipPrefab, pos, Quaternion.Euler(0f, 0f, -90f));
     }
 }
