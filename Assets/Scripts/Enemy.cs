@@ -50,7 +50,11 @@ public class Enemy : MonoBehaviour
     
 
     #region Method used in animator
-    public void DestroyInEndAnimatin() { Destroy(gameObject); }
+    public void DestroyInEndAnimatin() 
+    {
+        FindObjectOfType<WaveScore>().CounterEnemyKills(enemyConfig.GetPointsForKill());
+        Destroy(gameObject); 
+    }
     public void FireAnimation()
     {
         var laser = Instantiate(enemyConfig.GetEnemyProjectile(), gun.transform.position, Quaternion.identity);

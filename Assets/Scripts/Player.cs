@@ -46,6 +46,11 @@ public class Player : MonoBehaviour
         }  
     }
 
+    public int GetHealth()
+    {
+        return health;
+    }
+
     public void SetShipConfig(PlayerShipConfig ship)
     {
         this.ship = ship;

@@ -16,6 +16,7 @@ public class EnemyConfig : ScriptableObject
     [SerializeField] float speed;
     [SerializeField] int numberOfEnemies;
     [SerializeField] float timeBetweenSpawn;
+    [SerializeField] float pointsForKill;
 
     bool isEnemyProjectile = true;
 
@@ -33,6 +34,7 @@ public class EnemyConfig : ScriptableObject
     public float GetEnemyNumber() { return numberOfEnemies; }
     public float GetTimeBetweenSpawn() { return timeBetweenSpawn; }
     public bool GetIsEnemyProjectile() { return isEnemyProjectile; }
+    public float GetPointsForKill() { return pointsForKill; }
     public List<Vector2> GetEnemyPath()
     {
         var enemyPath = new List<Vector2>();
